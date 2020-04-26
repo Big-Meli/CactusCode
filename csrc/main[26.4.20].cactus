@@ -1,0 +1,12 @@
+@root greeting[myname, yourname] {
+    say{"$_yourname said hello to $_myname"}
+    wait{10}
+    say{"$_yourname said goodbye to $_myname"}
+} break root
+
+set myname to "Shaun"
+set yourname to "Leonidas"
+
+say{"This is a test by $myname"}
+
+@greeting[$myname, $yourname]
