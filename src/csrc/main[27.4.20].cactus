@@ -1,0 +1,32 @@
+@compile extending Sherlock
+//Imports the compiler extension 'Sherlock' for no reason?
+
+set myname to "Shaun"
+set yourname to "John Doeset greeter to "Greeter >>"
+//Defining string variables
+
+say {"$yourname $myname"}
+say {"$myname $yourname"}
+//Printing out both variables in seperate say statements, gap between of 'say {' doesn't matter
+
+@root greeting[name1, name2] {
+	say{"Hello $_name1, from $_name2"}
+	wait{10s}
+	//Using the wait keywords allows you to make the console wait before doing something something
+	say{"Goodbye $_name1, from $_name2"}
+}
+//Rooting a non-rooted subroutine called greeting that reuqires parameters with names 'name1' and 'name2'
+
+@greeting[$myname, $yourname]
+//Calling a rooted subroutine, passing the values that are held by variabels called 'myname' and 'yourname'
+
+@root createpopups[title1, content1, title2, content2, time] {
+	@_popup[$_title1, $_content1]
+	//Using the premade function syntaxed in red called @_popup, thanks to CactusCode being made in python, it allows simpler use of tkinter
+	wait $_time
+	@_popup[$_title2, $_content2]
+}
+//Creating a subroutine to show off wait and premade functions
+
+@createpopups["First title", "First content", "Second title", "Second content", @_parse[10, integer]]
+//Run createpopups root with an example of the premade function @_parse which allows you to set the type of value a given value is (parsed|seen) as
